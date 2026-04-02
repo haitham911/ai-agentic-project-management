@@ -349,3 +349,40 @@ class RoutingAgent:
 
         print(f"[Router] Best agent: {best_agent['name']} (score={best_score:.3f})")
         return best_agent["func"](user_input)
+
+
+class ActionPlanningAgent:
+    """An agent that uses provided knowledge to dynamically extract and list
+    the steps required to execute a task described in a user's prompt."""
+
+    def __init__(self, openai_api_key: str, base_url: str, knowledge: str = ""):
+        self.openai_api_key = openai_api_key
+        self.base_url = base_url
+        self.knowledge = knowledge
+        self.client = OpenAI(base_url=self.base_url, api_key=self.openai_api_key)
+
+    def respond(self, prompt: str) -> list[str]:
+        system_prompt = (
+            "You are an Action Planning Agent. "
+            "Your job is to extract a clear, ordered list of action steps required to complete the task described by the user. "
+            "Use only the following knowledge to inform your steps: "
+            f"{self.knowledge} "
+            "Return the steps as a numbered list, one step per line. "
+            "Do not include any introduction, summary, or extra commentary."
+        )
+        response = self.client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": prompt},
+            ],
+            temperature=0,
+        )
+        response_text = response.choices[0].message.content
+
+        actions = [
+            line.strip()
+            for line in response_text.splitlines()
+            if line.strip()
+        ]
+        return actions

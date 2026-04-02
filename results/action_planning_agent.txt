@@ -1,0 +1,42 @@
+=== ActionPlanningAgent ===
+
+Prompt: One morning I wanted to have scrambled eggs
+Action steps:
+  1. Crack the desired number of eggs into a bowl.
+  2. Add a splash of milk or cream to the eggs.
+  3. Season with salt and pepper to taste.
+  4. Whisk the eggs until well combined.
+  5. Heat a non-stick skillet over medium heat.
+  6. Melt a knob of butter in the skillet.
+  7. Pour the whisked eggs into the skillet.
+  8. Let the eggs sit for a few seconds, then gently stir with a spatula.
+  9. Continue to stir and fold the eggs until they reach your desired consistency.
+  10. Remove the skillet from heat and transfer the scrambled eggs to a plate.
+  11. Serve and enjoy your scrambled eggs.
+
+Prompt: I need to bake a chocolate cake
+Action steps:
+  1. Preheat the oven to the temperature specified in the recipe.
+  2. Grease and flour the cake pans.
+  3. Mix together the dry ingredients (flour, cocoa powder, baking powder, baking soda, and salt) in a bowl.
+  4. In a separate bowl, cream together butter and sugar until light and fluffy.
+  5. Add eggs one at a time, mixing well after each addition.
+  6. Mix in vanilla extract.
+  7. Gradually add the dry ingredients to the wet ingredients, alternating with milk.
+  8. Pour the batter into the prepared cake pans.
+  9. Bake in the preheated oven for the time specified in the recipe.
+  10. Check for doneness by inserting a toothpick into the center of the cake - if it comes out clean, the cake is done.
+  11. Remove the cakes from the oven and let them cool in the pans for a few minutes.
+  12. Invert the cakes onto a wire rack to cool completely before frosting.
+
+Prompt: I want to make a cup of coffee
+Action steps:
+  1. Boil water.
+  2. Grind coffee beans to a medium-coarse consistency.
+  3. Place a coffee filter in a drip cone or coffee maker.
+  4. Add the ground coffee to the filter.
+  5. Pour hot water over the coffee grounds in a circular motion, allowing it to bloom.
+  6. Let the coffee drip through the filter into a cup.
+  7. Add sugar, milk, or cream to taste.
+  8. Stir and enjoy your cup of coffee.
+

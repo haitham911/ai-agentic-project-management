@@ -74,6 +74,18 @@ venv/bin/python -m phase_1.runners.run_evaluation_agent
 
 Output: `results/evaluation_agent.txt`
 
+### run_action_planning_agent.py
+
+Breaks down a task into a clean, ordered list of action steps using provided knowledge.
+
+```bash
+venv/bin/python -m phase_1.runners.run_action_planning_agent
+```
+
+Output: `results/action_planning_agent.txt`
+
+---
+
 ### run_routing_agent.py
 
 Uses cosine similarity between prompt embeddings and agent description embeddings to
