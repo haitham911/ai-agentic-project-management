@@ -298,9 +298,9 @@ class EvaluationAgent:
                 print(" Step 5: Send feedback to worker agent for refinement")
                 prompt_to_evaluate = (
                     f"The original prompt was: {initial_prompt}\n"
-                    f"The response to that prompt was: {response_from_worker}\n"
-                    f"It has been evaluated as incorrect.\n"
-                    f"Make only these corrections, do not alter content validity: {instructions}"
+                    f"Your previous response was:\n{response_from_worker}\n\n"
+                    f"That response was rejected. Apply ONLY these corrections and rewrite your full answer:\n{instructions}\n\n"
+                    f"Output only the corrected answer. Do not repeat these instructions."
                 )
         return {  # TODO: 7 - return final response, evaluation, and iteration count
             "response": response_from_worker,
