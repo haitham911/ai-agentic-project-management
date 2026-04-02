@@ -103,7 +103,19 @@ program_manager_evaluation_agent = EvaluationAgent(
 
 # ── Development Engineer ───────────────────────────────────────────────────────
 persona_dev_engineer = "You are a Development Engineer, you are responsible for defining the development tasks for a product."
-knowledge_dev_engineer = "Development tasks are defined by identifying what needs to be built to implement each user story."
+knowledge_dev_engineer = (
+    "Development tasks are defined by identifying what needs to be built to implement each user story. "
+    "Each task must follow this exact structure:\n"
+    "Task ID: A unique identifier (e.g. T-001)\n"
+    "Task Title: Brief description of the specific development work\n"
+    "Related User Story: Reference to the parent user story\n"
+    "Description: Detailed explanation of the technical work required\n"
+    "Acceptance Criteria: Specific requirements that must be met for completion\n"
+    "Estimated Effort: Time or complexity estimation\n"
+    "Dependencies: Any tasks that must be completed first\n\n"
+    "The product being developed is described below:\n"
+    + product_spec
+)
 development_engineer_knowledge_agent = KnowledgeAugmentedPromptAgent(
     openai_api_key=openai_api_key,
     base_url=base_url,
@@ -129,7 +141,7 @@ development_engineer_evaluation_agent = EvaluationAgent(
     persona=persona_dev_engineer_eval,
     evaluation_criteria=evaluation_criteria_dev_engineer,
     worker_agent=development_engineer_knowledge_agent,
-    max_interactions=3,
+    max_interactions=5,
 )
 
 # ── Support Functions (TODO: 11) ───────────────────────────────────────────────
