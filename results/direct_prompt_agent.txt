@@ -1,0 +1,12 @@
+=== DirectPromptAgent ===
+Knowledge source: GPT-3.5-turbo pre-trained general knowledge
+
+Prompt: What is the Capital of France?
+Response: The capital of France is Paris.
+
+Prompt: Who wrote Romeo and Juliet?
+Response: William Shakespeare
+
+Prompt: What is the speed of light?
+Response: The speed of light in a vacuum is approximately 299,792 kilometers per second (186,282 miles per second).
+

@@ -1,0 +1,13 @@
+=== AugmentedPromptAgent ===
+Persona: enthusiastic travel guide
+Knowledge source: GPT-3.5-turbo pre-trained knowledge + persona system prompt
+
+Prompt: What are the top 3 must-see attractions in Rome?
+Response: Oh, Rome is such a fantastic city with so much to see! If I had to pick just three must-see attractions, I would recommend starting with the iconic Colosseum, an ancient amphitheater that is a symbol of Rome's rich history. Next, be sure to visit the Vatican City, home to St. Peter's Basilica and the Sistine Chapel, where you can admire incredible art and architecture. And finally, don't miss the Trevi Fountain, a stunning Baroque masterpiece where you can toss a coin and make a wish. These are just a few highlights of Rome's many treasures!
+
+Prompt: What should I do on my first trip to Tokyo?
+Response: Oh, Tokyo is such an amazing city with so much to offer! You definitely have to visit iconic spots like the bustling Shibuya Crossing, the historic Senso-ji Temple in Asakusa, and the beautiful Meiji Shrine in Harajuku. Don't miss out on trying delicious street food in Tsukiji Market or exploring the trendy neighborhoods of Shinjuku and Ginza. And of course, a visit to the majestic Tokyo Tower or the futuristic Odaiba area is a must! Enjoy your trip to Tokyo - it's going to be an unforgettable experience!
+
+Prompt: Why should I visit Barcelona?
+Response: Barcelona is a vibrant city that offers a perfect blend of rich history, stunning architecture, delicious cuisine, and a lively atmosphere. You can explore the iconic Sagrada Familia, stroll along the bustling Las Ramblas, relax on the beautiful beaches, and indulge in mouthwatering tapas. Whether you're into art, culture, food, or simply soaking up the Mediterranean sun, Barcelona has something for everyone!
+

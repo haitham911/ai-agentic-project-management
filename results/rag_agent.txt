@@ -1,0 +1,24 @@
+=== RAGKnowledgePromptAgent ===
+Chunking and embedding knowledge corpus...
+
+Embeddings ready.
+
+Prompt: What is the podcast that Clara hosts about?
+Response: Dear students,
+
+Clara hosts a podcast called "Crosscurrents" which explores the intersection of science, culture, and ethics. Each week, she interviews researchers, engineers, artists, and activists to delve into various topics within these realms. Through her podcast, Clara aims to provide a platform for discussions that bridge different fields and perspectives, offering insights into how these areas intersect and influence one another.
+
+Best regards,
+[Your Name]
+
+Prompt: What is Clara's profession?
+Response: Dear students,
+
+Clara's profession is a podcaster. She created a podcast called "Crosscurrents" that explores the intersection of science, culture, and ethics by interviewing researchers, engineers, artists, and activists.
+
+Best regards,
+[Your Name]
+
+Prompt: Who are Clara's parents and where are they from?
+Response: Dear students, Clara's parents are Olena and Mykola, who are from Ukraine. They fled their homeland in the late 1980s after the Chernobyl disaster brought instability and fear.
+

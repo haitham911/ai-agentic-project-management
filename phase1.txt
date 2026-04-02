@@ -1,0 +1,75 @@
+AI-Powered Agentic Workflow for Project Management (Pilot: Email Router)
+You will deliver a two-part solution:
+
+Phase 1: The Agentic Toolkit
+
+A Python package (workflow_agents) containing seven meticulously crafted and individually tested agent classes (base_agents.py):
+DirectPromptAgent
+AugmentedPromptAgent
+KnowledgeAugmentedPromptAgent
+RAGKnowledgePromptAgent (provided, but understand its role)
+EvaluationAgent
+RoutingAgent
+ActionPlanningAgent
+Standalone test scripts for each agent, proving their individual capabilities, along with screenshots of successful test runs.
+
+
+Phase 1:
+Fully implemented reusable agent library (workflow_agents/base_agents.py).
+Test scripts for each agent in the reusable agent library
+Outputs from running the seven testing scripts in the form of screenshots or text files containing terminal outputs.
+
+
+import openai
+openai.api_base = "https://openai.vocareum.com/v1"
+openai.api_key = "voc-00000000000000000000000000000000abcd.12345678"
+
+
+phase_1/
+├── workflow_agents/
+│   ├── __init__.py             ← (empty)
+│   └── base_agents.py          ← Student implementation file
+├── direct_prompt_agent.py
+├── augmented_prompt_agent.py
+├── knowledge_augmented_prompt_agent.py
+├── rag_knowledge_prompt_agent.py
+├── evaluation_agent.py
+├── routing_agent.py
+└── action_planning_agent.py
+
+workflow_agents is a Python package containing all your agent class definitions.
+One script per agent to test their functionality has also been provided in the folder.
+
+Environment Configuration: Create a .env file in the tests/ folder containing your OpenAI API key:
+
+Agent Library Implementation
+Complete each agent class in workflow_agents/base_agents.py in the following order, and validate using the provided test scripts.
+
+
+Define the DirectPromptAgent Class
+File: workflow_agents/base_agents.py
+
+Complete the following tasks to implement your DirectPromptAgent class:
+
+Import the OpenAI Class: Import the OpenAI class from the OpenAI Python library.
+Store the API Key: Within the class constructor (__init__), create an attribute named openai_api_key to store the provided OpenAI API key.
+Select the LLM Model: When calling the OpenAI API, select the gpt-3.5-turbo model for generating completions.
+Send the User Prompt: Pass the user-provided prompt directly to the model as a user message. Do not include a system prompt.
+Implement the respond method: Return only the content (text) of the LLM's response, not the full JSON payload.
+
+
+Test the DirectPromptAgent Class
+File: direct_prompt_agent_test.py
+
+Complete these steps in your test script to verify the functionality of the DirectPromptAgent:
+
+Import the Class: Import the DirectPromptAgent class from base_agents.py.
+Load the API Key: Use the dotenv library to securely load your OpenAI API key from an environment file.
+Instantiate the Agent: Create an instance of the DirectPromptAgent class named direct_agent using the loaded API key.
+Prompt the Agent: Send the following prompt to the agent, store the response, and print it:
+"What is the Capital of France?"
+
+
+Explain Knowledge Source: Include a descriptive print statement explaining source of the knowledge the agent used to respond to your prompt (Hint: the agent uses general knowledge from the selected LLM model).
+
+

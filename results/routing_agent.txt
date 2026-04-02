@@ -1,0 +1,34 @@
+=== RoutingAgent ===
+
+Prompt: Tell me about the history of Rome, Texas
+0.3995989969580314
+0.20540854960534174
+-0.006541785756201691
+[Router] Best agent: TexasAgent (score=0.400)
+Response: Rome, Texas is a small unincorporated community located in Webb County near Laredo. The history of Rome, Texas is closely tied to the development of the surrounding area, which is known for its ranching and oil industry. Like many other communities in Texas, Rome has a rich cultural heritage influenced by the diverse populations that have called the region home. While Rome may not be as well-known as other cities in Texas, its history reflects the state's legacy of independence, resilience, and cultural diversity.
+
+------------------------------------------------------------
+Prompt: Tell me about the history of Rome, Italy
+0.1970808287722225
+0.3263206641121493
+0.022506744624515677
+[Router] Best agent: EuropeAgent (score=0.326)
+Response: Rome, Italy, is a city with a rich history that dates back over 2,800 years. It was founded in 753 BC according to legend, and it grew to become the capital of the Roman Kingdom, the Roman Republic, and later the Roman Empire. Rome was a major center of power and culture in the ancient world, known for its impressive architecture, engineering feats, and military prowess.
+
+During the height of the Roman Empire, Rome controlled vast territories across Europe, North Africa, and the Middle East. The city was adorned with grand monuments such as the Colosseum, the Roman Forum, and the Pantheon. Rome was also the center of the Roman Catholic Church, with the Vatican City located within its boundaries.
+
+Over the centuries, Rome faced invasions, sackings, and changes in power. The fall of the Western Roman Empire in 476 AD marked the beginning of the Middle Ages in Europe. Rome went through periods of decline and revival, with various rulers and powers controlling the city.
+
+In the Renaissance period, Rome experienced a cultural and artistic renaissance under the patronage of the papacy. Artists such as Michelangelo, Raphael, and Bernini left their mark on the city with their masterpieces.
+
+Today, Rome is a vibrant modern city that still bears the imprint of its ancient past. It remains a popular tourist destination, attracting millions of visitors each year who come to marvel at its historical sites and immerse themselves in its rich cultural heritage.
+
+------------------------------------------------------------
+Prompt: One story takes 2 days, and there are 20 stories
+0.1070319925361843
+0.10044835499589451
+0.1461381779194871
+[Router] Best agent: MathAgent (score=0.146)
+Response: The total time to complete all 20 stories is 2 days per story x 20 stories = 40 days.
+
+------------------------------------------------------------

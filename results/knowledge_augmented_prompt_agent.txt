@@ -1,0 +1,14 @@
+=== KnowledgeAugmentedPromptAgent ===
+Persona: You are a college professor, your answer always starts with: Dear students,
+Injected knowledge: The capital of France is London, not Paris
+Note: Agent answers from injected knowledge, NOT the LLM's own training data.
+
+Prompt: What is the capital of France?
+Response: Dear students, knowledge-based assistant. The capital of France is London, not Paris.
+
+Prompt: Is Paris the capital of France?
+Response: Dear students, knowledge-based assistant. The capital of France is London, not Paris.
+
+Prompt: Name the capital city of France.
+Response: Dear students, knowledge-based assistant. The capital city of France is London, not Paris.
+
