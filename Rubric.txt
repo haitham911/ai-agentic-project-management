@@ -1,0 +1,171 @@
+Project: AI-Powered Agentic Workflow for Project Management
+
+1) The Agentic Toolkit - Agent Implementation
+
+- Implement required agent classes with correct structure and initialization.
+  - Define these six student-implemented classes in workflow_agents/base_agents.py:
+    - DirectPromptAgent
+    - AugmentedPromptAgent
+    - KnowledgeAugmentedPromptAgent
+    - EvaluationAgent
+    - RoutingAgent
+    - ActionPlanningAgent
+  - Each class should have an __init__ method that initializes the needed attributes.
+  - Each class should expose its main public method:
+    - respond() for prompt-based agents
+    - evaluate() for EvaluationAgent
+    - route() for RoutingAgent
+    - extract_steps_from_prompt() for ActionPlanningAgent
+  - Each method should return output in the expected format.
+
+- Configure agents for correct LLM interaction and API key management.
+  - Use gpt-3.5-turbo for agents that call the LLM, unless otherwise specified.
+  - Use text-embedding-3-large for RoutingAgent embeddings.
+  - Pass the OpenAI API key during initialization.
+  - Do not hardcode the API key.
+  - EvaluationAgent should use temperature=0 for evaluation and correction calls.
+
+- Implement agent-specific prompt engineering and core logic as required.
+  - DirectPromptAgent:
+    - Sends the user prompt directly as a user message
+    - No system prompt
+    - Returns only text content
+  - AugmentedPromptAgent:
+    - Uses a system prompt for persona
+    - Instructs the LLM to forget previous context
+    - Returns only text content
+  - KnowledgeAugmentedPromptAgent:
+    - Uses a system prompt for persona and provided knowledge
+    - Instructs the LLM to use only that knowledge
+    - Returns only text content
+  - EvaluationAgent:
+    - Runs an iterative loop up to max_interactions
+    - Gets a response from a worker agent
+    - Evaluates it against criteria
+    - If needed, generates correction instructions
+    - Returns a dictionary with final response, evaluation, and iteration count
+  - RoutingAgent:
+    - Gets text embeddings using text-embedding-3-large
+    - Computes cosine similarity
+    - Selects the best agent
+    - Calls its function and returns the selected agent’s response
+  - ActionPlanningAgent:
+    - Uses a system prompt to extract actionable steps from a user prompt
+    - Returns a clean list of steps
+
+2) The Agentic Toolkit - Agent Testing
+
+- Provide functional test scripts for each implemented agent.
+  - One separate Python test script for each of the six implemented agents
+  - Each script should:
+    - import the agent from workflow_agents.base_agents
+    - instantiate it with the required parameters
+    - call the main method with a sample prompt
+    - print the response or relevant output
+
+- Submit evidence of successful test script execution.
+  - Provide outputs for all seven test scripts, including the provided RAGKnowledgePromptAgent test
+  - Outputs can be screenshots or text files
+  - Outputs should clearly show the prompt and the response
+  - DirectPromptAgent output should include the print statement explaining its knowledge source
+  - AugmentedPromptAgent output should include comments discussing knowledge source and persona impact
+  - KnowledgeAugmentedPromptAgent output should include a print statement confirming use of provided knowledge
+
+3) Project Management Workflow - Setup and Agent Instantiation
+
+- Implement initial workflow setup in agentic_workflow.py.
+  - Import:
+    - ActionPlanningAgent
+    - KnowledgeAugmentedPromptAgent
+    - EvaluationAgent
+    - RoutingAgent
+  - Load the OpenAI API key from an environment variable
+  - Load Product-Spec-Email-Router.txt into product_spec
+
+- Instantiate core workflow agents and specialized knowledge agents correctly.
+  - Instantiate ActionPlanningAgent with knowledge_action_planning
+  - Complete knowledge_product_manager by appending product_spec
+  - Instantiate a KnowledgeAugmentedPromptAgent for:
+    - Product Manager
+    - Program Manager
+    - Development Engineer
+
+- Instantiate Evaluation Agents for each specialized role.
+  - Product Manager EvaluationAgent:
+    - persona:
+      "You are an evaluation agent that checks the answers of other worker agents"
+    - evaluation_criteria:
+      "The answer should be stories that follow the following structure: As a [type of user], I want [an action or feature] so that [benefit/value]."
+    - agent_to_evaluate = product_manager_knowledge_agent
+
+  - Program Manager EvaluationAgent:
+    - use the specified persona and multi-line evaluation criteria for product features
+
+  - Development Engineer EvaluationAgent:
+    - use the specified persona and multi-line evaluation criteria for tasks
+
+- Instantiate and configure the Routing Agent.
+  - Create a RoutingAgent
+  - Set its agents attribute to a list of dictionaries
+  - Each route should include:
+    - name
+    - description
+    - func
+  - Include routes for:
+    - Product Manager
+    - Program Manager
+    - Development Engineer
+
+4) Project Management Workflow - Workflow Logic and Execution
+
+- Implement support functions for routed tasks.
+  - Define support functions such as:
+    - product_manager_support_function
+    - program_manager_support_function
+    - development_engineer_support_function
+  - Each support function should:
+    - accept an input query
+    - call the corresponding KnowledgeAugmentedPromptAgent.respond()
+    - pass that response to the corresponding EvaluationAgent.evaluate()
+    - return the final validated response, usually from final_response
+
+- Implement the main agentic workflow orchestration.
+  - Use action_planning_agent to generate workflow_steps from workflow_prompt
+  - Iterate through workflow_steps
+  - For each step:
+    - print the current step
+    - call routing_agent.route(step)
+    - append the result to completed_steps
+    - print the result
+  - After all steps, print the final output
+
+- Produce a final, structured output for the Email Router project.
+  - Running agentic_workflow.py with Product-Spec-Email-Router.txt should produce:
+    - user stories
+    - product features
+    - detailed engineering tasks
+  - Required formats:
+    - User stories:
+      "As a [type of user], I want [an action or feature] so that [benefit/value]."
+    - Product features:
+      "Feature Name: ..."
+      "Description: ..."
+      "Key Functionality: ..."
+      "User Benefit: ..."
+    - Engineering tasks:
+      "Task ID: ..."
+      "Task Title: ..."
+      "Related User Story: ..."
+      "Description: ..."
+      "Acceptance Criteria: ..."
+      "Estimated Effort: ..."
+      "Dependencies: ..."
+
+5) Industry Best Practices
+
+- Write code that is readable, well-commented, and modular.
+  - Use descriptive variable and function names
+  - Follow Python naming conventions
+  - Add comments or docstrings for complex logic
+  - Keep base_agents.py organized into agent classes
+  - Keep agentic_workflow.py logically organized
